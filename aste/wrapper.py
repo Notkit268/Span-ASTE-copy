@@ -13,8 +13,8 @@ from fire import Fire
 from pydantic import BaseModel
 from tqdm import tqdm
 
-from data_utils import Data, SentimentTriple, SplitEnum, Sentence, LabelEnum
-from utils import safe_divide
+from aste.data_utils import Data, SentimentTriple, SplitEnum, Sentence, LabelEnum
+from aste.utils import safe_divide
 
 
 class SpanModelDocument(BaseModel):
