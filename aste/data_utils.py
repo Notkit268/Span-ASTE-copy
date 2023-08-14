@@ -1,4 +1,3 @@
-!pip install fire
 import ast
 import copy
 import json
