@@ -227,7 +227,7 @@ class Sentence(BaseModel):
 class Data(BaseModel):
     root: Path
     data_split: SplitEnum
-    sentences: Optional[List[Sentence]]
+    sentences: Optional[List[Sentence]] = None
     full_path: str = ""
     num_instances: int = -1
     opinion_offset: int = 3  # Refer: jet_o.py
