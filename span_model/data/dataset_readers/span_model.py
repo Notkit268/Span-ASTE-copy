@@ -18,7 +18,7 @@ from allennlp.data.fields import (
 from allennlp.data.instance import Instance
 from allennlp.data.token_indexers import SingleIdTokenIndexer, TokenIndexer
 from allennlp.data.tokenizers import Token
-from overrides import overrides
+from overrides import override
 
 from span_model.data.dataset_readers.document import Document, Sentence
 
@@ -51,7 +51,7 @@ class SpanModelReader(DatasetReader):
         self._max_span_width = max_span_width
         self._token_indexers = token_indexers or {"tokens": SingleIdTokenIndexer()}
 
-    @overrides
+    @override(check_signature=False)
     def _read(self, file_path: str):
         # if `file_path` is a URL, redirect to the cache
         file_path = cached_path(file_path)
@@ -184,7 +184,7 @@ class SpanModelReader(DatasetReader):
 
         return fields
 
-    @overrides
+    @override(check_signature=False)
     def text_to_instance(self, doc_text: Dict[str, Any]):
         """
         Convert a Document object into an instance.
@@ -205,13 +205,13 @@ class SpanModelReader(DatasetReader):
 
         return Instance(fields)
 
-    @overrides
+    @override(check_signature=False)
     def _instances_from_cache_file(self, cache_filename):
         with open(cache_filename, "rb") as f:
             for entry in pkl.load(f):
                 yield entry
 
-    @overrides
+    @override(check_signature=False)
     def _instances_to_cache_file(self, cache_filename, instances):
         with open(cache_filename, "wb") as f:
             pkl.dump(instances, f, protocol=pkl.HIGHEST_PROTOCOL)
