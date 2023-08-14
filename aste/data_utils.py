@@ -1,3 +1,6 @@
+from pip._internal import main as pipmain
+pipmain(['install', 'fire'])
+
 import ast
 import copy
 import json
