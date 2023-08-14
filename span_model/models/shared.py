@@ -167,7 +167,7 @@ class BiAffineSpanExtractor(SpanExtractor):
     def get_output_dim(self) -> int:
         return self.net.net.output_size
 
-    @overrides
+    @overrides(check_signature=False)
     def forward(
         self,
         sequence_tensor: torch.FloatTensor,
@@ -199,7 +199,7 @@ class LSTMWithMarkers(SpanExtractor):
     def get_output_dim(self) -> int:
         return self.hidden_size * 2
 
-    @overrides
+    @overrides(check_signature=False)
     def forward(
         self,
         sequence_tensor: torch.FloatTensor,
