@@ -1,6 +1,6 @@
 from typing import Optional, Tuple
 
-from overrides import overrides
+from overrides import override
 import torch
 
 from allennlp.modules.token_embedders import PretrainedTransformerEmbedder, TokenEmbedder
@@ -82,7 +82,7 @@ class DoubleMixPTMEmbedder(TokenEmbedder):
             return (hidden_states,) + transformer_output
         return new_fn
 
-    @overrides
+    @override(check_signature=False)
     def get_output_dim(self):
         return self._matched_embedder.get_output_dim()
 
@@ -104,7 +104,7 @@ class DoubleMixPTMEmbedder(TokenEmbedder):
 
         return orig_embeddings
 
-    @overrides
+    @override(check_signature=False)
     def forward(
             self,
             token_ids: torch.LongTensor,
