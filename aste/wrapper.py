@@ -73,7 +73,7 @@ class SpanModelPrediction(SpanModelDocument):
 class SpanModelData(BaseModel):
     root: Path
     data_split: SplitEnum
-    documents: Optional[List[SpanModelDocument]]
+    documents: Optional[List[SpanModelDocument]] = None
 
     @classmethod
     def read(cls, path: Path) -> List[SpanModelDocument]:
