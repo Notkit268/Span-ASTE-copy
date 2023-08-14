@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Callable
 
 import torch
 import torch.nn.functional as F
-from overrides import overrides
+from overrides import override
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
@@ -171,7 +171,7 @@ class ProperRelationExtractor(Model):
         )
         return Pruner(feedforward_scorer, use_external_score=True)
 
-    @overrides
+    @override(check_at_runtime=True)
     def forward(
         self,  # type: ignore
         spans: torch.IntTensor,
@@ -359,7 +359,7 @@ class ProperRelationExtractor(Model):
         return res_dict, predictions
 
     # TODO: This code is repeated elsewhere. Refactor.
-    @overrides
+    @override(check_at_runtime=True)
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
         "Loop over the metrics for all namespaces, and return as dict."
         res = {}
