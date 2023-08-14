@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Callable
 
 import torch
 from torch.nn import functional as F
-from overrides import overrides
+from overrides import override
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
