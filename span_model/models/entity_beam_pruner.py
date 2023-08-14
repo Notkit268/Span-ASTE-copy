@@ -4,7 +4,7 @@ This is basically a copy of AllenNLP's Pruner module, but with support for entit
 
 from typing import Tuple, Union
 
-from overrides import overrides
+from overrides import override
 import torch
 
 from allennlp.nn import util
@@ -243,7 +243,7 @@ class TwoScorePruner(torch.nn.Module):
         self._scorer = scorer
         self.output_size = 2
 
-    @overrides
+    @override(check_at_runtime=True)
     def forward(
         self,  # pylint: disable=arguments-differ
         embeddings: torch.FloatTensor,
@@ -334,7 +334,7 @@ class ClassifyMaskPruner(Pruner):
         super().__init__(scorer, **kwargs)
         self._threshold = threshold
 
-    @overrides
+    @override(check_at_runtime=True)
     def forward(
             self,  # pylint: disable=arguments-differ
             embeddings: torch.FloatTensor,
