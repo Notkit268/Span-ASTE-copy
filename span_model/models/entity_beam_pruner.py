@@ -67,7 +67,7 @@ class Pruner(torch.nn.Module):
     def set_external_score(self, x: torch.Tensor):
         self._scores = x
 
-    @overrides
+    @override(check_signature=False)
     def forward(
         self,  # pylint: disable=arguments-differ
         embeddings: torch.FloatTensor,
