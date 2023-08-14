@@ -92,7 +92,7 @@ class NERTagger(Model):
         )
         return scorer
 
-    @overrides
+    @override(check_at_runtime=True)
     def forward(
         self,  # type: ignore
         spans: torch.IntTensor,
@@ -189,7 +189,7 @@ class NERTagger(Model):
         return predictions
 
     # TODO: This code is repeated elsewhere. Refactor.
-    @overrides
+    @override(check_at_runtime=True)
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
         "Loop over the metrics for all namespaces, and return as dict."
         res = {}
