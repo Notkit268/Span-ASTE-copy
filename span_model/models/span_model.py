@@ -287,7 +287,7 @@ class SpanModel(Model):
                 ]
         return new_span_embeddings
 
-    @override(check_at_runtime=True)
+    @override(check_signature=False)
     def make_output_human_readable(self, output_dict: Dict[str, torch.Tensor]):
         """
         Converts the list of spans and predicted antecedent indices into clusters
