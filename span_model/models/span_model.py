@@ -157,7 +157,7 @@ class SpanModel(Model):
         span_embeddings = self._endpoint_span_extractor(text_embeddings, spans)
         return span_embeddings
 
-    @override(check_at_runtime=True)
+    @override(check_signature=False)
     def forward(
         self,
         text,
