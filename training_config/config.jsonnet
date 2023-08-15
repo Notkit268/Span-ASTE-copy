@@ -1,6 +1,9 @@
 {
-  "data_loader": {'type' :'simple',
-  'batch_size' :32},
+  "data_loader": {
+    "type": "multiprocess",
+    'batch_sampler' : 'bucket',
+    'batch_size' :32
+    },
   "dataset_reader": {
     "max_span_width": 8,
     "token_indexers": {
@@ -26,7 +29,7 @@
     "feedforward_params": {
       "dropout": 0.4,
       "hidden_dims": 150,
-      "num_layers": 2,
+      "num_layers": 2
     },
     "initializer": {
       "regexes": [
@@ -74,14 +77,16 @@
     "use_span_width_embeds": true
   },
   "trainer": {
-
+    "checkpointer": {
+      "num_serialized_models_to_keep": 1
+    },
     "cuda_device": -1,
     "grad_norm": 5,
     "learning_rate_scheduler": {
       "type": "slanted_triangular"
     },
     "num_epochs": 10,
-    'batch_size' : 32,
+    'batch_size' :32,
     "optimizer": {
       "lr": 0.001,
       "parameter_groups": [
