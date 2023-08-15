@@ -165,7 +165,7 @@ class SpanModel(BaseModel):
             weights_file="",
             batch_size=1,
             silent=True,
-            cuda_device=0,
+            cuda_device=-1,
             use_dataset_reader=True,
             dataset_reader_choice="validation",
             overrides="",
