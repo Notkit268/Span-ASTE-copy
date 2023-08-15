@@ -29,7 +29,8 @@
     "feedforward_params": {
       "dropout": 0.4,
       "hidden_dims": 150,
-      "num_layers": 2
+      "num_layers": 2,
+      'batch_size' :32
     },
     "initializer": {
       "regexes": [
