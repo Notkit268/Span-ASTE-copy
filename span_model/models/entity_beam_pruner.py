@@ -4,7 +4,7 @@ This is basically a copy of AllenNLP's Pruner module, but with support for entit
 
 from typing import Tuple, Union
 
-from overrides import override
+from overrides import overrides
 import torch
 
 from allennlp.nn import util
@@ -67,7 +67,7 @@ class Pruner(torch.nn.Module):
     def set_external_score(self, x: torch.Tensor):
         self._scores = x
 
-    @override(check_signature=False)
+    @overrides
     def forward(
         self,  # pylint: disable=arguments-differ
         embeddings: torch.FloatTensor,
