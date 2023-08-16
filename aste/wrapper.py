@@ -157,6 +157,17 @@ class SpanModel(BaseModel):
         path_temp_out = Path(self.save_dir) / "temp_data" / "pred_out.json"
         if path_temp_out.exists():
             os.remove(path_temp_out)
+        params = Params.from_file(
+            self.path_config_base,
+            params_overrides=dict(
+                random_seed=self.random_seed,
+                numpy_seed=self.random_seed,
+                pytorch_seed=self.random_seed,
+                train_data_path=str(self.save_temp_data(path_train, "train")),
+                validation_data_path=str(self.save_temp_data(path_dev, "dev")),
+                test_data_path=str(self.save_temp_data(path_dev, "dev")),
+            ),
+        )
 
         args = Namespace(
             archive_file=str(path_model),
