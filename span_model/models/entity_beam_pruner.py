@@ -243,7 +243,7 @@ class TwoScorePruner(torch.nn.Module):
         self._scorer = scorer
         self.output_size = 2
 
-    @override(check_at_runtime=True)
+    @overrides
     def forward(
         self,  # pylint: disable=arguments-differ
         embeddings: torch.FloatTensor,
@@ -334,7 +334,7 @@ class ClassifyMaskPruner(Pruner):
         super().__init__(scorer, **kwargs)
         self._threshold = threshold
 
-    @override(check_at_runtime=True)
+    @overrides
     def forward(
             self,  # pylint: disable=arguments-differ
             embeddings: torch.FloatTensor,
