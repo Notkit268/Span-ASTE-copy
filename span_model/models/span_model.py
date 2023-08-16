@@ -154,9 +154,9 @@ class SpanModel(Model):
 
     def text_to_span_embeds(self, text_embeddings: torch.Tensor, spans):
         # Shape: (batch_size, num_spans, 2 * encoding_dim + feature_size)
-        print('shape', text_embeddings.shape)
+        # print('shape', text_embeddings.shape)
         span_embeddings = self._endpoint_span_extractor(text_embeddings, spans)
-        print('shape1', span_embeddings.shape)
+        # print('shape1', span_embeddings.shape)
         return span_embeddings
 
     @overrides
