@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Callable
 
 import torch
 from torch.nn import functional as F
-from overrides import override
+from overrides import overrides
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
@@ -92,7 +92,7 @@ class NERTagger(Model):
         )
         return scorer
 
-    @override(check_at_runtime=True)
+    @overrides
     def forward(
         self,  # type: ignore
         spans: torch.IntTensor,
@@ -189,7 +189,7 @@ class NERTagger(Model):
         return predictions
 
     # TODO: This code is repeated elsewhere. Refactor.
-    @override(check_at_runtime=True)
+    @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
         "Loop over the metrics for all namespaces, and return as dict."
         res = {}
