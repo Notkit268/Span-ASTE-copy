@@ -1,5 +1,5 @@
 {   data_loader: {
-    batch_size: 10,
+    batch_size: 1,
     shuffle: true
   },
   "dataset_reader": {
@@ -77,7 +77,7 @@
   "trainer": {
     "checkpointer": {
     },
-    "cuda_device": -1,
+    "cuda_device": 0,
     "grad_norm": 5,
     "learning_rate_scheduler": {
       "type": "slanted_triangular"
