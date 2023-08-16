@@ -2,7 +2,7 @@ from typing import List
 import numpy as np
 import warnings
 
-from overrides import override
+from overrides import overrides
 import numpy
 import json
 
@@ -34,13 +34,13 @@ class SpanModelPredictor(Predictor):
         instance = self._words_list_to_instance(tokenized_document)
         return self.predict_instance(instance)
 
-    @override(check_signature=False)
+    @overrides
     def dump_line(self, outputs):
         # Need to override to tell Python how to deal with Numpy ints.
         return json.dumps(outputs, default=int) + "\n"
 
     # TODO: Can this be implemented in `forward_on_instance`  instead?
-    @override(check_signature=False)
+    @overrides
     def predict_instance(self, instance):
         """
         An instance is an entire document, represented as a list of sentences.
