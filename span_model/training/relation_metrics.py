@@ -1,4 +1,4 @@
-from overrides import override
+from overrides import overrides
 
 from allennlp.training.metrics.metric import Metric
 
@@ -16,7 +16,7 @@ class RelationMetrics(Metric):
     # TODO: This requires decoding because the dataset reader gets rid of gold spans wider
     # than the span width. So, I can't just compare the tensor of gold labels to the tensor of
     # predicted labels.
-    @override(check_signature=False)
+    @overrides
     def __call__(self, predicted_relation_list, metadata_list):
         for predicted_relations, metadata in zip(
             predicted_relation_list, metadata_list
@@ -29,7 +29,7 @@ class RelationMetrics(Metric):
                 if ix in gold_relations and gold_relations[ix] == label:
                     self._total_matched += 1
 
-    @override(check_signature=False)
+    @overrides
     def get_metric(self, reset=False):
         precision, recall, f1 = compute_f1(
             self._total_predicted, self._total_gold, self._total_matched
@@ -41,7 +41,7 @@ class RelationMetrics(Metric):
 
         return precision, recall, f1
 
-    @override(check_signature=False)
+    @overrides
     def reset(self):
         self._total_gold = 0
         self._total_predicted = 0
@@ -49,7 +49,7 @@ class RelationMetrics(Metric):
 
 
 class SpanPairMetrics(RelationMetrics):
-    @override(check_signature=False)
+    @overrides
     def __call__(self, predicted_relation_list, metadata_list):
         for predicted_relations, metadata in zip(
                 predicted_relation_list, metadata_list
