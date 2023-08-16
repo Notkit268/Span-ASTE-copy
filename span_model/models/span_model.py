@@ -8,7 +8,7 @@ from overrides import overrides
 
 from allennlp.data import Vocabulary
 from allennlp.common.params import Params
-from allennlp.models.model import Model
+from allennlp.models import Model
 from allennlp.modules import TextFieldEmbedder, FeedForward
 from allennlp.modules.span_extractors import EndpointSpanExtractor
 from allennlp.nn import util, InitializerApplicator, RegularizerApplicator
