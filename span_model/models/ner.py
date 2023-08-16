@@ -181,7 +181,7 @@ class NERTagger(Model):
                     label_score_raw.item(),
                     label_score_softmax.item(),
                 ]
-                from document import PredictedNER
+                from span_model.data.dataset_readers.document import PredictedNER
                 prediction = PredictedNER(ner, sentence, sentence_offsets=True)
                 predictions_sent.append(prediction)
 
