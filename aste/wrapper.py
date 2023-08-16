@@ -182,7 +182,7 @@ class SpanModel(BaseModel):
 
         assert SpanModelReader is not None
         assert SpanModelPredictor is not None
-        _predict(args)
+        _predict(args)  --include-package
 
         with open(path_temp_out) as f:
             preds = [SpanModelPrediction(**json.loads(line.strip())) for line in f]
