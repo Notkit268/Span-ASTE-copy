@@ -174,12 +174,12 @@ class SpanModel(Model):
 
         # TODO: Multi-document minibatching isn't supported yet. For now, get rid of the
         # extra dimension in the input tensors. Will return to this once the model runs.
-        print('metadata:', metadata)
+        # print('metadata:', metadata)
         if len(metadata) > 1:
-            print("Multi-document minibatching not yet supported.")
+            print("Multi-document minibatching not yet supported!!!!!!!!!!!!!!!!!!!")
         #     raise NotImplementedError("Multi-document minibatching not yet supported.")
 
-        # metadata = metadata[0]
+        metadata = metadata[0]
         spans = self._debatch(spans)  # (n_sents, max_n_spans, 2)
         ner_labels = self._debatch(ner_labels)  # (n_sents, max_n_spans)
         relation_labels = self._debatch(
