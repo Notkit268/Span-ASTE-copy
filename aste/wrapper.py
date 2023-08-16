@@ -171,6 +171,7 @@ class SpanModel(BaseModel):
             overrides="",
             predictor="span_model",
             file_friendly_logging=False,
+            predictor_args=params
         )
 
         # Register custom modules
