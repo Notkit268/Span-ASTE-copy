@@ -4,7 +4,7 @@ import copy
 
 import torch
 import torch.nn.functional as F
-from overrides import override
+from overrides import overrides
 
 from allennlp.data import Vocabulary
 from allennlp.common.params import Params
@@ -157,7 +157,7 @@ class SpanModel(Model):
         span_embeddings = self._endpoint_span_extractor(text_embeddings, spans)
         return span_embeddings
 
-    @override(check_signature=False)
+    @overrides
     def forward(
         self,
         text,
@@ -287,7 +287,7 @@ class SpanModel(Model):
                 ]
         return new_span_embeddings
 
-    @override(check_signature=False)
+    @overrides
     def make_output_human_readable(self, output_dict: Dict[str, torch.Tensor]):
         """
         Converts the list of spans and predicted antecedent indices into clusters
