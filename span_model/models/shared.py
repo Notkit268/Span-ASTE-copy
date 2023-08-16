@@ -9,7 +9,7 @@ import torch.nn.functional as F
 from allennlp.modules import FeedForward
 from allennlp.modules.span_extractors import EndpointSpanExtractor, SpanExtractor
 from allennlp.nn.util import batched_span_select
-from overrides import override
+from overrides import overrides
 from torch import Tensor
 
 
@@ -167,7 +167,7 @@ class BiAffineSpanExtractor(SpanExtractor):
     def get_output_dim(self) -> int:
         return self.net.net.output_size
 
-    @override(check_signature=False)
+    @overrides
     def forward(
         self,
         sequence_tensor: torch.FloatTensor,
@@ -199,7 +199,7 @@ class LSTMWithMarkers(SpanExtractor):
     def get_output_dim(self) -> int:
         return self.hidden_size * 2
 
-    @override(check_signature=False)
+    @overrides
     def forward(
         self,
         sequence_tensor: torch.FloatTensor,
