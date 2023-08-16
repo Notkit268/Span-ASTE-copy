@@ -179,7 +179,7 @@ class SpanModel(BaseModel):
         sys.path.append(".")
         from span_model.data.dataset_readers.span_model import SpanModelReader
         from span_model.predictors.span_model import SpanModelPredictor
-
+        from span_model.models.span_model import SpanModel
         assert SpanModelReader is not None
         assert SpanModelPredictor is not None
         _predict(args)  --include-package
