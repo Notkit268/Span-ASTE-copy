@@ -16,10 +16,6 @@ if [[ -f wordnet.zip ]]; then
 fi
 
 # Make sample data for quick debugging
-unzip -n data_banki.zip -d aste/
+unzip -n data_15.zip -d aste/
 cd aste/data/triplet_data
-mkdir -p sample
-head -n 32 14lap/train.txt >sample/train.txt
-head -n 32 14lap/dev.txt >sample/dev.txt
-head -n 32 14lap/test.txt >sample/test.txt
 cd ../../..
