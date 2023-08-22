@@ -16,6 +16,6 @@ if [[ -f wordnet.zip ]]; then
 fi
 
 # Make sample data for quick debugging
-unzip -n data_15.zip -d aste/
+unzip -n data_banki_full_15 -d aste/
 cd aste/data/triplet_data
 cd ../../..
