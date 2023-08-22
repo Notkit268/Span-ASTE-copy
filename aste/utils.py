@@ -11,7 +11,7 @@ from pydantic import BaseModel
 
 
 class Shell(BaseModel):
-    verbose: bool = True
+    verbose: bool = False
 
     @classmethod
     def format_kwargs(cls, **kwargs) -> str:
