@@ -82,7 +82,7 @@
     "learning_rate_scheduler": {
       "type": "slanted_triangular"
     },
-    "num_epochs": 3,
+    "num_epochs": 10,
     "optimizer": {
       "lr": 0.001,
       "parameter_groups": [
