@@ -14,6 +14,10 @@ from span_model.models.shared import BiAffineSingleInput
 from span_model.training.ner_metrics import NERMetrics
 from span_model.data.dataset_readers import document
 
+logging.getLogger('allennlp.common.params').disabled = True 
+logging.getLogger('allennlp.nn.initializers').disabled = True 
+logging.getLogger('allennlp.modules.token_embedders.embedding').setLevel(logging.INFO) 
+logging.getLogger('urllib3.connectionpool').disabled = True 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
