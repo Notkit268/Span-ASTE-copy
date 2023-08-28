@@ -261,7 +261,7 @@ class ProperRelationExtractor(Model):
 
         # Keep different number of spans for each minibatch entry.
 
-         num_spans_to_keep = torch.ceil(
+        num_spans_to_keep = torch.ceil(
             sentence_lengths.float() * self._spans_per_word
         ).long()
         # num_spans_to_keep = torch.ceil(
