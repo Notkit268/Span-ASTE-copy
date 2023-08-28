@@ -79,7 +79,7 @@ class Pruner(torch.nn.Module):
     ) -> Tuple[
         torch.FloatTensor, torch.LongTensor, torch.LongTensor, torch.FloatTensor
     ]:
-        print(embeddings.shape, num_items_to_keep, embeddings)
+        # print(embeddings.shape, num_items_to_keep, embeddings)
         """
         Extracts the top-k scoring items with respect to the scorer. We additionally return
         the indices of the top-k in their original order, not ordered by score, so that downstream
