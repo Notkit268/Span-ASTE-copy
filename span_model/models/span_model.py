@@ -16,6 +16,10 @@ from allennlp.nn import util, InitializerApplicator, RegularizerApplicator
 from span_model.models.ner import NERTagger
 from span_model.models.relation_proper import ProperRelationExtractor
 
+logging.getLogger('allennlp.common.params').disabled = True 
+logging.getLogger('allennlp.nn.initializers').disabled = True 
+logging.getLogger('allennlp.modules.token_embedders.embedding').setLevel(logging.INFO) 
+logging.getLogger('urllib3.connectionpool').disabled = True 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
