@@ -7,7 +7,7 @@
     "token_indexers": {
       "bert": {
         "max_length": 512,
-        "model_name": "bert-base-multilingual-uncased",
+        "model_name": "ai-forever/ruBert-base",
         "type": "pretrained_transformer_mismatched"
       }
     },
@@ -18,7 +18,7 @@
       "token_embedders": {
         "bert": {
           "max_length": 512,
-          "model_name": "bert-base-multilingual-uncased",
+          "model_name": "ai-forever/ruBert-base",
           "type": "pretrained_transformer_mismatched"
         }
       }
@@ -64,7 +64,7 @@
       "ner": {
       },
       "relation": {
-        "spans_per_word": 0.5,
+        "spans_per_word": 0.6,
         "use_distance_embeds": true,
         "use_pruning": true,
       }
