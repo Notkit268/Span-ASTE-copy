@@ -257,7 +257,7 @@ class ProperRelationExtractor(Model):
 
         # Keep different number of spans for each minibatch entry.
         num_spans_to_keep = torch.ceil(
-            sentence_lengths.float() * self._spans_per_word + torch.log(sentence_lengths.float())*2
+            sentence_lengths.float() * self._spans_per_word + torch.log(sentence_lengths.float())*4
         ).long()
 
         outputs = pruner(span_embeddings, span_mask, num_spans_to_keep)
