@@ -259,7 +259,7 @@ class ProperRelationExtractor(Model):
         num_spans_to_keep = torch.ceil(
             sentence_lengths.float() * self._spans_per_word + torch.log(sentence_lengths.float())*4
         ).long()
-        print('check', num_spans_to_keep, sentence_lengths, self._spans_per_word)
+        # print('check', num_spans_to_keep, sentence_lengths, self._spans_per_word)
         outputs = pruner(span_embeddings, span_mask, num_spans_to_keep)
         (
             top_span_embeddings,
