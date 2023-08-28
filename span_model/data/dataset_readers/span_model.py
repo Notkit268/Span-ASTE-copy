@@ -22,6 +22,10 @@ from overrides import overrides
 
 from span_model.data.dataset_readers.document import Document, Sentence
 
+logging.getLogger('allennlp.common.params').disabled = True 
+logging.getLogger('allennlp.nn.initializers').disabled = True 
+logging.getLogger('allennlp.modules.token_embedders.embedding').setLevel(logging.INFO) 
+logging.getLogger('urllib3.connectionpool').disabled = True 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
