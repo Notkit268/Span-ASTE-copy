@@ -64,7 +64,7 @@
       "ner": {
       },
       "relation": {
-        "spans_per_word": 0.6,
+        "spans_per_word": 0.45,
         "use_distance_embeds": true,
         "use_pruning": true,
       }
