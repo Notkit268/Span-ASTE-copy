@@ -16,6 +16,11 @@ from tqdm import tqdm
 from aste.data_utils import Data, SentimentTriple, SplitEnum, Sentence, LabelEnum
 from aste.utils import safe_divide
 
+import numpy as np
+import os
+import random
+import torch 
+
 
 class SpanModelDocument(BaseModel):
     sentences: List[List[str]]
@@ -128,6 +133,18 @@ class SpanModel(BaseModel):
         return path_temp
 
     def fit(self, path_train: str, path_dev: str):
+        
+
+        def seed_everything(TORCH_SEED):
+        	random.seed(TORCH_SEED)
+        	os.environ['PYTHONHASHSEED'] = str(TORCH_SEED)
+        	np.random.seed(TORCH_SEED)
+        	torch.manual_seed(TORCH_SEED)
+        	torch.cuda.manual_seed_all(TORCH_SEED)
+        	torch.backends.cudnn.deterministic = True
+        	torch.backends.cudnn.benchmark = False
+        seed_everything(self.random_seed)
+        
         weights_dir = Path(self.save_dir) / "weights"
         weights_dir.mkdir(exist_ok=True, parents=True)
         print(dict(weights_dir=weights_dir))
